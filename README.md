@@ -1,100 +1,146 @@
-\# Compiler Design DSL
+# Compiler Design DSL Project
 
+## 📌 Project Overview
 
+This project demonstrates the implementation of a **basic compiler pipeline** for a simple Domain-Specific Language (DSL) using **Lex (Flex)** and **YACC (Bison)**. The compiler processes arithmetic expressions and assignment statements, validating their syntax and structure.
 
-\## Project Description
+The main goal of this project is to understand how different phases of a compiler—especially **lexical analysis and syntax analysis**—work together to process input code.
 
-This project implements a simple compiler pipeline using Lex and YACC. It processes a basic domain-specific language (DSL) for arithmetic expressions and assignment statements.
+---
 
+## ⚙️ Features
 
+* Tokenization of input using **Lexical Analysis (Flex)**
+* Syntax validation using **Parsing (Bison/YACC)**
+* Support for:
 
-\## Features
+  * Identifiers (variables)
+  * Numeric constants
+  * Arithmetic operators (+, *)
+  * Assignment statements
+* Error detection for invalid syntax
+* Clean and modular project structure
 
-\- Lexical Analysis using Flex
+---
 
-\- Syntax Analysis using Bison
+## 🛠️ Tools & Technologies Used
 
-\- Basic parsing of expressions and assignments
+* **Flex (Lex)** – for lexical analysis
+* **Bison (YACC)** – for syntax analysis
+* **GCC Compiler** – for compiling generated C code
+* **Windows PowerShell** – for execution
+* **Notepad / VS Code** – for editing source files
 
-\- Error handling for invalid syntax
+---
 
+## 📁 Project Structure
 
+```
+Compiler-Design-DSL/
+│
+├── src/            # Source files
+│   ├── lexer.l     # Lexical analyzer
+│   ├── parser.y    # Parser (grammar rules)
+│
+├── test/           # Input test cases
+│   └── input.txt
+│
+├── output/         # Execution results
+│   └── output.png
+│
+├── docs/           # Documentation (Report PDF)
+│
+└── README.md       # Project documentation
+```
 
-\## Tools Used
+---
 
-\- Flex (Lex)
+## 🚀 How to Run the Project
 
-\- Bison (YACC)
+### Step 1: Navigate to source folder
 
-\- GCC Compiler
+```
+cd src
+```
 
-\- Windows PowerShell
+### Step 2: Generate lexical analyzer
 
+```
+win_flex lexer.l
+```
 
+### Step 3: Generate parser
 
-\## Folder Structure
+```
+win_bison -d parser.y
+```
 
-\- src/ → Source code files (lexer.l, parser.y)
+### Step 4: Compile the program
 
-\- test/ → Input test cases
+```
+gcc lex.yy.c parser.tab.c -o compiler.exe
+```
 
-\- output/ → Execution screenshot
+### Step 5: Execute the compiler
 
-\- docs/ → Report document
+```
+Get-Content ..\test\input.txt | .\compiler.exe
+```
 
-\- README.md → Project documentation
+---
 
+## 📥 Sample Input
 
-
-\## Steps to Run
-
-1\. Navigate to src folder:
-
-&#x20;  cd src
-
-
-
-2\. Generate lexer:
-
-&#x20;  win\_flex lexer.l
-
-
-
-3\. Generate parser:
-
-&#x20;  win\_bison -d parser.y
-
-
-
-4\. Compile:
-
-&#x20;  gcc lex.yy.c parser.tab.c -o compiler.exe
-
-
-
-5\. Run:
-
-&#x20;  Get-Content ..\\test\\input.txt | .\\compiler.exe
-
-
-
-\## Sample Input
-
+```
 a = 5 + 3;
+```
 
+---
 
+## 📤 Sample Output
 
-\## Sample Output
-
+```
 Valid Statement
+```
 
+---
 
+## 🔍 Working Explanation
 
-\## Team Details
+1. The input is read from a file.
+2. The **lexical analyzer** breaks the input into tokens.
+3. The **parser** checks whether the sequence of tokens follows defined grammar rules.
+4. If valid, the compiler prints:
 
-Name: A.PRANESH
+   ```
+   Valid Statement
+   ```
 
-Reg No: RA2311026050035
+   Otherwise, it reports a syntax error.
+
+---
+
+## 📚 Learning Outcomes
+
+* Understanding of **compiler design basics**
+* Hands-on experience with **Flex and Bison**
+* Knowledge of how tokens and grammar rules interact
+* Practical exposure to parsing and syntax validation
+
+---
+
+## 🧾 Conclusion
+
+This project successfully demonstrates the working of a simple compiler using Flex and Bison. It highlights the importance of lexical and syntax analysis in validating programming constructs and provides a strong foundation for building more advanced compiler components like **semantic analysis and code generation**.
+
+---
+
+## 👨‍💻 Author Details
+
+* **Name:** A.Pranesh
+* **Register Number:** RA2311026050035
+
+---
 
 
 
